@@ -1,0 +1,77 @@
+programme qui permet de faire un pipe
+1. utilisé la fonction fork() pour copier le processus du parent à l'enfant
+si modif dans enfant, parent pas modifié
+id différent retourné par la fonction fork
+si < 0 alors id d'enfant dans le parent
+si = 0 return de l'enfant
+si > 0 erreur
+
+2. créer une ft pour gérer l'enfant créé au préalable
+utilisation de dup2 pour rediriger la sortie vers un file externe
+close le file fd[0] pour fermer le file qu'on a ouvert
+execve pour executer la commander qu'on a demander (mettre le path de la commande shell)
+utilisation de env (voir exactement ce que cela est)
+
+3. créer une ft pour le parent
+utilisation de dup2
+close le file fd[1]
+execve pour la seconde commande
+utilisation de wait pour mettre en pause le temps que l'enfant fasse son processus
+
+pipe() envoie l'output du premier execve dans l'input du second execve
+fork() lance 2 processus en meme temps (parent et enfant) dans un programme
+dup2() swap les fichiers avec stdout et stdin
+access() savoir si on a acces ou non (fichier txt ou chemin pour commande bash)
+
+file1 cmd1 | cmd2 file2
+le processus parent sera celui de la commande cmd2 file2
+le processus enfant sera celui de la commande cmd1 file1
+
+
+dans le main j'initialise pid et le fd à 2
+je regarde si j'ai bien mes 5 arguments (./pipex, file1, cmd1, cmd2 et file2);
+si c'est le cas je lance le pipe pour faire un tunnel unidirectionnel (parent -> enfant)
+je gere l'erreur du pipe == -1;
+je lance le fork() avec pid = fork()
+je gère les différents cas:
+- pid == -1 -> perror("pid)
+- pid == 0 -> process de l'enfant donc je lance une fonction child process en gerant l'ouverture du pipe etc (à voir
+fonction pour gerer l'enfant
+ce que je dois faire)
+changer la sortie standard vers fd[1], STDOUT
+changer la sortie vers un int filein, STDIN
+close(fd[0])
+execute(argv[2], env) ->fonction à créer
+exit
+- pid < 0 -> process du parent donc je lance une fonction parent process en gerant l'ouverture et la fermeture du pipe
+(à voir ce que je dois faire)
+changer la sortie standard vers fd[0], STDIN
+changer la sortie vers fileout, STDOUT
+close(fd[1])
+exectue(argv[3], env) -> meme fonction qu'au dessus avec params différents
+
+fonction find_path utilise la variable d'environnement PATH pour trouver le chemin complet de la commande envoyée
+- elle parcourt les variables d'environnement jusqu'à trouver celle du PATH
+- elle extrait les chemins séparés par des ':' -> d'où l'utilisation de la fonction split()
+- elle vérifie si le chemin pour la commande spécifiée existe à cet endroit en concaténant le chemin et le nom de la commande
+- si le chemin est trouvé elle le renvoi sinon elle renvoie NULL;
+
+fonction execute
+- elle divise la commande passée en arguments en utilisant la fonction split(), les arguments sont stockés dans un tableau de chaines de charactères
+- elle utilise la fonction find_path pour récupérer le chemin de la commande à partir de son nom
+- si le chemin existe elle execute la commande grace à à la fonction execve
+- sinon elle renvoie une erreur -> perror() et exit_failure;
+
+
+
+
+
+fonction pour initialiser le path (permettant de trouver le path de la cmd)
+
+fonction pour le process child et le process parent
+
+fonction pour executer la commande dans le fichier une fois que le chemin est trouvé
+
+
+
+
