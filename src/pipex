@@ -1,3 +1,5 @@
+
+
 programme qui permet de faire un pipe
 1. utilisé la fonction fork() pour copier le processus du parent à l'enfant
 si modif dans enfant, parent pas modifié
@@ -38,6 +40,7 @@ je gère les différents cas:
 - pid == 0 -> process de l'enfant donc je lance une fonction child process en gerant l'ouverture du pipe etc (à voir
 fonction pour gerer l'enfant
 ce que je dois faire)
+open le file1 en O_RDONLY
 changer la sortie standard vers fd[1], STDOUT
 changer la sortie vers un int filein, STDIN
 close(fd[0])
@@ -45,14 +48,17 @@ execute(argv[2], env) ->fonction à créer
 exit
 - pid < 0 -> process du parent donc je lance une fonction parent process en gerant l'ouverture et la fermeture du pipe
 (à voir ce que je dois faire)
+open le file2 avec O_WRONLY O_CREAT O_TRUNC
 changer la sortie standard vers fd[0], STDIN
 changer la sortie vers fileout, STDOUT
 close(fd[1])
 exectue(argv[3], env) -> meme fonction qu'au dessus avec params différents
 
 fonction find_path utilise la variable d'environnement PATH pour trouver le chemin complet de la commande envoyée
-- elle parcourt les variables d'environnement jusqu'à trouver celle du PATH
-- elle extrait les chemins séparés par des ':' -> d'où l'utilisation de la fonction split()
+- elle parcourt les variables d'environnement jusqu'à trouver celle du PATH avec la focntion strnstr de la libft
+initialisation des variables part path (pour join les différentes parties), path (pour avoir le path final), check_path(pour recuperer le path du PATH cmd)
+
+- elle extrait les chemins séparés par des ':' -> d'où l'utilisation de la fonction split(), le + 5 pour enlever le "PATH="
 - elle vérifie si le chemin pour la commande spécifiée existe à cet endroit en concaténant le chemin et le nom de la commande
 - si le chemin est trouvé elle le renvoi sinon elle renvoie NULL;
 

@@ -6,7 +6,7 @@
 #    By: romlambe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/03 16:32:36 by romlambe          #+#    #+#              #
-#    Updated: 2024/03/03 17:00:43 by romlambe         ###   ########.fr        #
+#    Updated: 2024/03/10 18:35:28 by romlambe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,35 +15,34 @@ NAME = pipex
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 
-SRC = src/main.c
+SRCS := src/main.c
 
 LIBFT = libft/libft.a
-LIB = libft
-INCLUDE = -I $(LIB)
 
-OBJ = $(SRC.c=.o)
+OBJ = $(SRCS:.c=.o)
 
+all : author project $(NAME)
 
-RM = rm -f
+author:
+		@echo "Author : romlambe\n"
 
-all:	$(NAME) $(LIBFT)
-		@echo le projet pipex à été compilé avec succès
+project:
+		@echo "Project : Pipex\n"
 
 $(LIBFT):
-		make -s -C $(LIB) all
+		make -C libft
 
-%.o: %.c
-	@$(CC) @$(CFLAGS) @$(INCLUDE) -c $< -o $(<:.c=.o)
-
-$(NAME):	$(OBJ) $(LIBFT)
-			@$(CC) -o $(NAME) $(OBJS) -L ${LIB} -lft
+$(NAME): $(OBJ) $(LIBFT)
+		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 clean:
-		@$(RM) $(OBJS)
-		@make -C $(LIB) clean > /dev/null
+		$(RM) $(OBJ)
+		make clean -C libft
 
 fclean:
-		@$(RM) $(NAME)
-		@make -C $(LIB) fclean > /dev/null
+		$(RM) $(NAME)
+		make fclean -C libft
 
-re:		fclean all
+re:		author fclean all
+
+.PHONY: all clean fclean re
