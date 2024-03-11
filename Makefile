@@ -6,22 +6,29 @@
 #    By: romlambe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/03 16:32:36 by romlambe          #+#    #+#              #
-#    Updated: 2024/03/10 18:35:28 by romlambe         ###   ########.fr        #
+#    Updated: 2024/03/11 14:49:05 by romlambe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
+NAME_BONUS = pipex_bonus
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 
-SRCS := src/main.c
+SRCS := src/pipex.c src/utils.c
+SRCS_BONUS := src/pipex_bonus.c src/utils_bonus.c
 
 LIBFT = libft/libft.a
+GET_NEXT_LINE = gnl/get_next_line.c gnl/get_next_line_utils.c
 
 OBJ = $(SRCS:.c=.o)
+OBJ_BONUS = $(SRCS_BONUS:.c=.o)
+GNL_OBJ = $(GET_NEXT_LINE:.c=.o)
 
 all : author project $(NAME)
+
+bonus : author project $(NAME_BONUS)
 
 author:
 		@echo "Author : romlambe\n"
@@ -32,15 +39,19 @@ project:
 $(LIBFT):
 		make -C libft
 
-$(NAME): $(OBJ) $(LIBFT)
-		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT) $(GNL_OBJ)
+		$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(GNL_OBJ) -o $(NAME)
+
+$(NAME_BONUS): $(OBJ_BONUS) $(LIBFT) $(GNL_OBJ)
+		$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) $(GNL_OBJ) -o $(NAME_BONUS)
 
 clean:
-		$(RM) $(OBJ)
+		$(RM) $(OBJ) $(OBJ_BONUS)
+		$(RM) $(GNL_OBJ)
 		make clean -C libft
 
-fclean:
-		$(RM) $(NAME)
+fclean: clean
+		$(RM) $(NAME) $(NAME_BONUS)
 		make fclean -C libft
 
 re:		author fclean all

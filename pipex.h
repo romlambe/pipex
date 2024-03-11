@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:40 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/10 18:27:46 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:45:14 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 #include <fcntl.h>
 
 #include "../libft/libft.h"
+// #include "../gnl/get_next_line.h"
 
-int main(int ac, char **av, char **env);
-void child_process(char **av, char **env, int *fd);
-void parent_process(char **av, char **env, int *fd);
 
-char *find_path(char *cmd, char **env);
+// pipex
+char	*find_path(char *cmd, char **env);
 void	ft_execute(char *av, char **env);
+void	handle_error(void);
+
+// pipex bonus
+
 
