@@ -1,1 +1,9 @@
-outfile outfile outfile
+Makefile
+get_next_line
+infile
+libft
+outfile
+pipex.h
+pipex_bonus
+src
+tips_pipex

@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 09:54:12 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/18 09:12:46 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:23:34 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t size)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
 /*#include <stdio.h>
 
 int main()

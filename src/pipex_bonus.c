@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:02 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 23:13:55 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:29:37 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,10 @@ void	here_doc(char *limiter, int ac)
 		while(1)
 		{
 			line = get_next_line(0);
-			if (ft_strncmp(line, limiter, ft_strlen(limiter) == 0))
+			if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0)
+			{
 				exit(EXIT_SUCCESS);
+			}
 			write(fd[1], line, ft_strlen(line));
 			free(line);
 		}
