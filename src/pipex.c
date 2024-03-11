@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:15 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 14:04:58 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:50:27 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ void	parent_process(char **av, char **env, int *fd)
 	ft_execute(av[3], env);
 }
 
+void	handle_process(void)
+{
+	perror("Error");
+	exit(EXIT_FAILURE);
+}
+
 int	main(int ac, char **av, char **env)
 {
 	pid_t	pid;
@@ -59,3 +65,5 @@ int	main(int ac, char **av, char **env)
 		handle_error();
 	return (0);
 }
+
+

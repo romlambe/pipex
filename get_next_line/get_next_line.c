@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 12:13:47 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/10 22:00:25 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:12:04 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char	*get_next_line(int fd)
 	{
 		valread = read(fd, buffer, BUFFER_SIZE);
 		buffer[valread] = '\0';
-		stack = ft_strjoin_gnl(stack, buffer);
-		if (ft_strchr_gnl(stack))
+		stack = ft_gnl_strjoin(stack, buffer);
+		if (ft_strchr_gnl(stack, '\n'))
 			break ;
 	}
 	free (buffer);

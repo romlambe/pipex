@@ -6,7 +6,7 @@
 #    By: romlambe <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/03 16:32:36 by romlambe          #+#    #+#              #
-#    Updated: 2024/03/11 14:49:05 by romlambe         ###   ########.fr        #
+#    Updated: 2024/03/11 18:38:20 by romlambe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS := src/pipex.c src/utils.c
 SRCS_BONUS := src/pipex_bonus.c src/utils_bonus.c
 
 LIBFT = libft/libft.a
-GET_NEXT_LINE = gnl/get_next_line.c gnl/get_next_line_utils.c
+GET_NEXT_LINE = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJ = $(SRCS:.c=.o)
 OBJ_BONUS = $(SRCS_BONUS:.c=.o)

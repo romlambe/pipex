@@ -1,14 +1,1 @@
-total 112
-drwxr-xr-x  13 romain  staff    416 11 mar 14:05 .
-drwxr-xr-x  10 romain  staff    320 10 mar 18:17 ..
--rw-r--r--@  1 romain  staff   8196 10 mar 19:54 .DS_Store
-drwxr-xr-x  12 romain  staff    384 10 mar 18:45 .git
--rw-r--r--   1 romain  staff   1783 11 mar 14:04 Makefile
-drwxr-xr-x   9 romain  staff    288 11 mar 14:05 gnl
--rw-r--r--   1 romain  staff      0  4 mar 23:50 infile
-drwxr-xr-x  82 romain  staff   2624 11 mar 14:05 libft
--rw-r--r--   1 romain  staff      0 11 mar 14:07 outfile
--rwxr-xr-x   1 romain  staff  36664 11 mar 14:05 pipex
--rw-r--r--   1 romain  staff   1169 11 mar 13:45 pipex.h
-drwxr-xr-x   9 romain  staff    288 11 mar 14:05 src
-drwxr-xr-x   7 romain  staff    224 10 mar 19:38 tips_pipex
+outfile outfile outfile

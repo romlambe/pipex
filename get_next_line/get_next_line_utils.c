@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 12:21:47 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 14:05:56 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:11:51 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen_gnl(char *str)
 	return (i);
 }
 
-char	*ft_strjoin_gnl(char *s1, char *s2)
+char	*ft_gnl_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	int		len;
@@ -47,7 +47,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	return (array);
 }
 
-int	ft_strchr_gnl(char *str)
+int	ft_strchr_gnl(char *str, int c)
 {
 	int	i;
 
@@ -56,13 +56,13 @@ int	ft_strchr_gnl(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] == '\n')
+		if (str[i] == (unsigned char)c)
 			return (1);
 		i++;
 	}
-	if (str[i] == '\n')
-		return (1);
-	return (0);
+	if (str[i] == '\0')
+		return (0);
+	return (-1);
 }
 
 char	*ft_strndup_gnl(char *str, int size)

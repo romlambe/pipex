@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:40 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 13:45:14 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 18:38:58 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-#include "../libft/libft.h"
-// #include "../gnl/get_next_line.h"
+#include "libft/libft.h"
+#include "get_next_line/get_next_line.h"
 
 
 // pipex
@@ -26,4 +26,6 @@ void	handle_error(void);
 
 // pipex bonus
 
-
+int		open_file(char *av, int i);
+void	process(char *av, char **env);
+void	here_doc(char *limiter, int ac);
