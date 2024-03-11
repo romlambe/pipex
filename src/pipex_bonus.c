@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:02 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 23:29:37 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/11 23:38:37 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,3 +113,6 @@ int	open_file(char *av, int i)
 		handle_error();
 	return (file);
 }
+
+//regarder pourquoi ca va pas dans le outfile
+//tout normer
