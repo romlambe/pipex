@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:26:01 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 23:12:14 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:44:16 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int		ft_strchr_gnl(char *str, int c);
 char	*ft_strndup_gnl(char *str, int size);
 char	*to_write(char **stack);
 char	*get_next_line(int fd);
+
 
 #endif

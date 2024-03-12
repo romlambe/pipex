@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:02 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 23:38:37 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:24:11 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av, char **env)
 		if (ft_strncmp(av[1], "here_doc", 8) == 0)
 		{
 			i = 3;
-			filein = open_file(av[ac - 1], 0);
+			fileout = open_file(av[ac - 1], 0);
 			here_doc(av[2], ac);
 		}
 		else
@@ -39,6 +39,7 @@ int	main(int ac, char **av, char **env)
 		ft_execute(av[ac - 2], env);
 	}
 }
+
 void	process(char *av, char **env)
 {
 	pid_t	pid;
@@ -70,7 +71,6 @@ void	here_doc(char *limiter, int ac)
 {
 	pid_t	pid;
 	int		fd[2];
-	char	*line;
 
 	if (ac < 6)
 		handle_error();
@@ -80,16 +80,8 @@ void	here_doc(char *limiter, int ac)
 	if (pid == 0)
 	{
 		close(fd[0]);
-		while(1)
-		{
-			line = get_next_line(0);
-			if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0)
-			{
-				exit(EXIT_SUCCESS);
-			}
-			write(fd[1], line, ft_strlen(line));
-			free(line);
-		}
+		while (1)
+			here_doc_2(limiter, fd);
 	}
 	else
 	{
@@ -97,6 +89,17 @@ void	here_doc(char *limiter, int ac)
 		dup2(fd[0], STDIN_FILENO);
 		wait(NULL);
 	}
+}
+
+void	here_doc_2(char *limiter, int *fd)
+{
+	char	*line;
+
+	line = get_next_line(0);
+	if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0)
+		exit(EXIT_SUCCESS);
+	ft_putstr_fd(line, fd[1]);
+	free(line);
 }
 
 int	open_file(char *av, int i)

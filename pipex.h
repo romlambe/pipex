@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:40 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 18:38:58 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:45:25 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,4 @@ void	handle_error(void);
 int		open_file(char *av, int i);
 void	process(char *av, char **env);
 void	here_doc(char *limiter, int ac);
+void	here_doc_2(char *limiter, int *fd);

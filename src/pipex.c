@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:15 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 18:50:27 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:24:45 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,3 @@ int	main(int ac, char **av, char **env)
 		handle_error();
 	return (0);
 }
-
-

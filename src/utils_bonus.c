@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:01 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/11 18:52:16 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:24:36 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*find_path(char *cmd, char **env)
 	free(check_path);
 	return (0);
 }
+
 void	ft_execute(char *av, char **env)
 {
 	char	**cmd;
@@ -68,4 +69,3 @@ void	handle_error(void)
 	perror("Error");
 	exit(EXIT_FAILURE);
 }
-
