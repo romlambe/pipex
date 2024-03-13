@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:02 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/12 16:24:11 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:35:55 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int ac, char **av, char **env)
 		dup2(fileout, STDOUT_FILENO);
 		ft_execute(av[ac - 2], env);
 	}
+	handle_error();
 }
 
 void	process(char *av, char **env)
@@ -46,12 +47,10 @@ void	process(char *av, char **env)
 	int		fd[2];
 
 	if (pipe(fd) == -1)
-		// handle_error();
-		return (perror("erreur pipe process"));
+		handle_error();
 	pid = fork();
 	if (pid == -1)
-		// handle_error();
-		return (perror("erreur pid process"));
+		handle_error();
 	if (pid == 0)
 	{
 		close(fd[0]);
@@ -106,16 +105,15 @@ int	open_file(char *av, int i)
 {
 	int	file;
 
+	file = -1;
 	if (i == 0)
-		file = open(av, O_WRONLY | O_CREAT | O_APPEND, 0777);
-	if (i == 1)
-		file = open(av, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (i == 2)
-		file = open(av, O_RDONLY, 0777);
+		file = open(av, O_WRONLY | O_CREAT | O_APPEND, 0644);
+	else if (i == 1)
+		file = open(av, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	else if (i == 2)
+		file = open(av, O_RDONLY, 0644);
 	if (file == -1)
 		handle_error();
 	return (file);
 }
 
-//regarder pourquoi ca va pas dans le outfile
-//tout normer
