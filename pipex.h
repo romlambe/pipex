@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 16:09:40 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/12 15:45:25 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:46:49 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,4 @@ int		open_file(char *av, int i);
 void	process(char *av, char **env);
 void	here_doc(char *limiter, int ac);
 void	here_doc_2(char *limiter, int *fd);
+int		ft_strncmp_limiter(const char *s1, const char *s2, size_t n);

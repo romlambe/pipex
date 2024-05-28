@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:02 by romlambe          #+#    #+#             */
-/*   Updated: 2024/05/28 21:52:59 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:46:53 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,11 @@ void	here_doc_2(char *limiter, int *fd)
 	char	*line;
 
 	line = get_next_line(0);
-	if (ft_strncmp(line, limiter, ft_strlen(limiter)) == 0)
+	if (ft_strncmp_limiter(line, limiter, ft_strlen(limiter)) == 0)
+	{
+		free(line);
 		exit(EXIT_SUCCESS);
+	}
 	ft_putstr_fd(line, fd[1]);
 	free(line);
 }

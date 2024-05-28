@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:01 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/13 13:49:58 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/05/28 22:45:58 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,19 @@ void	handle_error(void)
 {
 	perror("Error");
 	exit(EXIT_FAILURE);
+}
+
+int	ft_strncmp_limiter(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (n == 0)
+		return (1);
+	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	if (i == n && s1[i] == '\n' && s1[i + 1] == '\0')
+		return (0);
+	else
+		return (1);
 }
