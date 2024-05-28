@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:15:02 by romlambe          #+#    #+#             */
-/*   Updated: 2024/03/18 15:09:36 by romlambe         ###   ########.fr       */
+/*   Updated: 2024/05/28 21:52:59 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,4 +116,3 @@ int	open_file(char *av, int i)
 		handle_error();
 	return (file);
 }
-
